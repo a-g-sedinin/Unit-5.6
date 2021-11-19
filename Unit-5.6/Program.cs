@@ -27,13 +27,8 @@ namespace Unit_5._6
             Console.WriteLine("Сколько у Вас любимых цветов?");
             int ColoursCount = CheckValue();
             string[] FavColours = Colours(ColoursCount);
-            if (PetsNames != null) return (Name, SName, Age, PetsNames.Length, PetsNames, ColoursCount, FavColours);
-            else
-            {
-                PetsNames[0] = "Нет имен";
-                return (Name, SName, Age, 0, PetsNames, ColoursCount, FavColours);
-
-            }
+            return (Name, SName, Age, PetsNames.Length, PetsNames, ColoursCount, FavColours);
+           
                 
                 
 
@@ -71,7 +66,7 @@ namespace Unit_5._6
             {
               AskPets();
             }
-            return null;
+            return PetsNames(0);
         }
         static int CheckValue ()
         {
@@ -88,14 +83,17 @@ namespace Unit_5._6
 
         static string[] PetsNames(int Count)
         {
-            string[] Names = new string[Count];
+
+            string[] Names = new string[Count+1];
+            if (Count == 0) Names[0] = "Нет имени";
             int i = 0;
-            while (i < Count)
+            while (i < Count-1)
             {
                 Console.WriteLine("Укажите имя питомца, пожалуйста.");
                 Names[i] = Console.ReadLine();
                 i++;
             }
+            
             return Names;
         }
         static string[] Colours(int Count)
