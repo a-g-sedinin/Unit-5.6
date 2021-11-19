@@ -12,7 +12,7 @@ namespace Unit_5._6
         {
 
            PrintData(GetUserData());
-
+           Console.ReadKey();
         }
 
         static (string , string , int , int , string[] ,int , string[] ) GetUserData()
@@ -48,7 +48,7 @@ namespace Unit_5._6
             Console.WriteLine($"\n У Вас {obj.Item6} любимых цветов. Их названия: ");
             foreach (string CName in obj.Item7)
             {
-                Console.WriteLine($"{CName}, ");
+                Console.WriteLine($"{CName} ");
             }
         }
         
@@ -101,14 +101,13 @@ namespace Unit_5._6
         static string[] Colours(int Count)
         {
             string[] Clr = new string[Count];
-            int i = 0;
-            foreach (string Colour in Clr)
+            int i;
+            for (i = 0;i<Count; i++)
             {
                 Console.WriteLine("Укажите любимый цвет, пожалуйста.");
                 
                 Clr[i] = Console.ReadLine();
-                i++;
-                
+                                
             }
             return Clr;
         }
